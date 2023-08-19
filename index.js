@@ -6,8 +6,6 @@ drawGrid();
 adjustGridBasedOnViewportSize();
 window.addEventListener('resize', adjustGridBasedOnViewportSize);
 
-attachHoverEventListenersToAllSquareDivs();
-
 // FUNCTIONS
 
 function adjustGridBasedOnViewportSize() {
@@ -31,20 +29,16 @@ function adjustGridBasedOnViewportSize() {
    }
 }
 
-function attachHoverEventListenersToAllSquareDivs() {
-   const allIndividualSquareDivs = document.querySelectorAll('#square-divs-container > .individual-square-div');
-
-   allIndividualSquareDivs.forEach((individualSquareDiv) => {
-      individualSquareDiv.addEventListener('mouseover', () => {
-         setTimeout(() => {
-            individualSquareDiv.classList.add('hovering');
-         }, 50);
-      });
-      individualSquareDiv.addEventListener('mouseout', () => {
-         setTimeout(() => {
-            individualSquareDiv.classList.remove('hovering');
-         }, 200);
-      });
+function attachHoverEventListenersToAllSquareDivs(aSingleSquareDiv) {
+   aSingleSquareDiv.addEventListener('mouseover', () => {
+      setTimeout(() => {
+         aSingleSquareDiv.classList.add('hovering');
+      }, 50);
+   });
+   aSingleSquareDiv.addEventListener('mouseout', () => {
+      setTimeout(() => {
+         aSingleSquareDiv.classList.remove('hovering');
+      }, 200);
    });
 }
 
@@ -62,10 +56,11 @@ function drawGrid() {
       const elementSquareDiv = document.createElement('div');
    
       elementSquareDiv.classList.add('individual-square-div');
-   
-      // elementSquareDiv.textContent = i;
-      
+
+      attachHoverEventListenersToAllSquareDivs(elementSquareDiv);
+         
       elementSquareDivsContainer.appendChild(elementSquareDiv);
    }
+
    elementBody.appendChild(elementSquareDivsContainer);
 }
