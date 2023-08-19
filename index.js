@@ -23,7 +23,6 @@ function adjustGridBasedOnViewportSize() {
          individualSquareDiv.style.flexBasis = `0`;
          individualSquareDiv.style.height = `${100/columnLength}%`;
          squareDivsContainer.style.maxWidth = `${Math.ceil(individualSquareDiv.getBoundingClientRect().height * rowLength)}px`;
-         console.log(`${squareDivsContainer.style.maxWidth} - ${individualSquareDiv.getBoundingClientRect().height * rowLength} - ${individualSquareDiv.getBoundingClientRect().height}`);
       });
    }
 }
