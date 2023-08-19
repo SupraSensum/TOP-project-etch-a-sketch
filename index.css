@@ -17,4 +17,5 @@
    padding: 4px;
    border: 1px solid black;
    flex: 1 1 0;
+   aspect-ratio: 1 / 1;
 }

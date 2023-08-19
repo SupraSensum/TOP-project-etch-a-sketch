@@ -8,6 +8,7 @@ for (i = 0; i < 256; i++) {
 
    elementSquareDiv.classList.add('individual-square-div');
    elementSquareDiv.style.flexBasis = `${100/16}%`;
+   elementSquareDiv.style.height = elementSquareDiv.style.width;
 
    elementSquareDiv.textContent = i;
    
