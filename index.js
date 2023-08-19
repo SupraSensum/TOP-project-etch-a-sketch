@@ -12,14 +12,14 @@ for (i = 0; i < 256; i++) {
 }
 elementBody.appendChild(elementSquareDivsContainer);
 
-checkViewportSize();
-window.addEventListener('resize', checkViewportSize);
+adjustGridBasedOnViewportSize();
+window.addEventListener('resize', adjustGridBasedOnViewportSize);
 
 attachHoverEventListenersToAllSquareDivs();
 
 // FUNCTIONS
 
-function checkViewportSize() {
+function adjustGridBasedOnViewportSize() {
    const allIndividualSquareDivs = document.querySelectorAll('#square-divs-container > .individual-square-div');
    const squareDivsContainer = document.querySelector('#square-divs-container');
    
