@@ -6,8 +6,6 @@ drawGrid();
 adjustGridBasedOnViewportSize();
 window.addEventListener('resize', adjustGridBasedOnViewportSize);
 
-// FUNCTIONS
-
 function adjustGridBasedOnViewportSize() {
    const allIndividualSquareDivs = document.querySelectorAll('#square-divs-container > .individual-square-div');
    const squareDivsContainer = document.querySelector('#square-divs-container');

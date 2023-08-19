@@ -14,6 +14,7 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
+   padding: 12%;
 }
 
 #square-divs-container {
@@ -26,7 +27,6 @@ body {
 }
 
 .individual-square-div {
-   padding: 4px;
    border: 1px solid black;
    flex: 0 1 0;
    aspect-ratio: 1;
