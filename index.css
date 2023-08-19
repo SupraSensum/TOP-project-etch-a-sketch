@@ -14,6 +14,9 @@ body {
    align-items: center;
 }
 
+/* Adding a border to this div potentially makes it too small to fit the desired
+   number of items in each row. Be mindful of this when using borders for
+   troubleshooting */
 #square-divs-container {
    display: flex;
    flex-wrap: wrap;
@@ -22,7 +25,6 @@ body {
    width: 100vw;
    align-items: flex-start;
    align-content: center;
-   /* border: 3px solid red; */
 }
 
 .individual-square-div {
