@@ -12,6 +12,19 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
+   height: 100vh;
+   width: 100vw;
+   flex-direction: column;
+}
+
+#content {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   flex: 1 1 0;
+   height: 100%;
+   width: 100%;
 }
 
 /* Adding a border to this div potentially makes it too small to fit the desired
@@ -21,8 +34,6 @@ body {
    display: flex;
    flex-wrap: wrap;
    flex: 1 1 auto;
-   height: 100vh;
-   width: 100vw;
    align-items: flex-start;
    align-content: center;
 }
@@ -38,4 +49,12 @@ body {
 .hovering {
    background-color: #75D41D;
    transition: background-color 0.3s ease;
+}
+
+/* 
+   TROUBLESHOOTING
+*/
+
+#content {
+   /* background-color: red; */
 }
