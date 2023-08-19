@@ -8,14 +8,24 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+   height: 100vh;
+   width: 100vw;
+}
+
 #square-divs-container {
    display: flex;
    flex-wrap: wrap;
+   flex: 1 1 auto;
+   height: 100%;
+   border: 1px solid red;
+   align-items: flex-start;
+   align-content: flex-start;
 }
 
 .individual-square-div {
    padding: 4px;
    border: 1px solid black;
-   flex: 1 1 0;
-   aspect-ratio: 1 / 1;
+   flex: 0 1 0;
+   aspect-ratio: 1;
 }
