@@ -10,11 +10,14 @@ for (i = 0; i < 256; i++) {
    
    elementSquareDivsContainer.appendChild(elementSquareDiv);
 }
-
 elementBody.appendChild(elementSquareDivsContainer);
 
 checkViewportSize();
 window.addEventListener('resize', checkViewportSize);
+
+attachHoverEventListenersToAllSquareDivs();
+
+// FUNCTIONS
 
 function checkViewportSize() {
    const allIndividualSquareDivs = document.querySelectorAll('#square-divs-container > .individual-square-div');
@@ -35,4 +38,21 @@ function checkViewportSize() {
          squareDivsContainer.style.maxWidth = `${(individualSquareDiv.offsetHeight + 1) * 16}px`;
       });
    }
+}
+
+function attachHoverEventListenersToAllSquareDivs() {
+   const allIndividualSquareDivs = document.querySelectorAll('#square-divs-container > .individual-square-div');
+
+   allIndividualSquareDivs.forEach((individualSquareDiv) => {
+      individualSquareDiv.addEventListener('mouseover', () => {
+         setTimeout(() => {
+            individualSquareDiv.classList.add('hovering');
+         }, 50);
+      });
+      individualSquareDiv.addEventListener('mouseout', () => {
+         setTimeout(() => {
+            individualSquareDiv.classList.remove('hovering');
+         }, 200);
+      });
+   });
 }

@@ -30,8 +30,11 @@ body {
    border: 1px solid black;
    flex: 0 1 0;
    aspect-ratio: 1;
+   transition: background-color 0.3s ease;
+   background-color: #8a2be2;
 }
 
 .hovering {
-   background-color: blueviolet;
+   background-color: #75D41D;
+   transition: background-color 0.3s ease;
 }
