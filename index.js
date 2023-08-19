@@ -45,7 +45,7 @@ function clearGrid() {
 
 function drawGrid() {
    const elementSquareDivsContainer = document.createElement('div');
-   const elementBody = document.querySelector('body');
+   const elementContentDiv = document.querySelector('#content');
 
    elementSquareDivsContainer.id = 'square-divs-container';
 
@@ -59,5 +59,5 @@ function drawGrid() {
       elementSquareDivsContainer.appendChild(elementSquareDiv);
    }
 
-   elementBody.appendChild(elementSquareDivsContainer);
+   elementContentDiv.appendChild(elementSquareDivsContainer);
 }
