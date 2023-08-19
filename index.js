@@ -1,21 +1,7 @@
-const elementBody = document.querySelector('body');
-const elementSquareDivsContainer = document.createElement('div');
-
 let rowLength = 30;
 let columnLength = 30;
 
-elementSquareDivsContainer.id = 'square-divs-container';
-
-for (i = 0; i < (rowLength * columnLength); i++) {
-   const elementSquareDiv = document.createElement('div');
-
-   elementSquareDiv.classList.add('individual-square-div');
-
-   // elementSquareDiv.textContent = i;
-   
-   elementSquareDivsContainer.appendChild(elementSquareDiv);
-}
-elementBody.appendChild(elementSquareDivsContainer);
+drawGrid();
 
 adjustGridBasedOnViewportSize();
 window.addEventListener('resize', adjustGridBasedOnViewportSize);
@@ -60,4 +46,26 @@ function attachHoverEventListenersToAllSquareDivs() {
          }, 200);
       });
    });
+}
+
+function clearGrid() {
+   document.querySelector('#square-divs-container').textContent = '';
+}
+
+function drawGrid() {
+   const elementSquareDivsContainer = document.createElement('div');
+   const elementBody = document.querySelector('body');
+
+   elementSquareDivsContainer.id = 'square-divs-container';
+
+   for (i = 0; i < (rowLength * columnLength); i++) {
+      const elementSquareDiv = document.createElement('div');
+   
+      elementSquareDiv.classList.add('individual-square-div');
+   
+      // elementSquareDiv.textContent = i;
+      
+      elementSquareDivsContainer.appendChild(elementSquareDiv);
+   }
+   elementBody.appendChild(elementSquareDivsContainer);
 }
