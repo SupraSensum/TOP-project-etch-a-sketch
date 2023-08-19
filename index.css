@@ -18,7 +18,6 @@ body {
    flex-wrap: wrap;
    flex: 1 1 auto;
    height: 100%;
-   border: 1px solid red;
    align-items: flex-start;
    align-content: flex-start;
 }
@@ -28,4 +27,8 @@ body {
    border: 1px solid black;
    flex: 0 1 0;
    aspect-ratio: 1;
+}
+
+.hovering {
+   background-color: blueviolet;
 }

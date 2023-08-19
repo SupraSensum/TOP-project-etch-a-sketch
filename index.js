@@ -7,13 +7,14 @@ for (i = 0; i < 256; i++) {
    const elementSquareDiv = document.createElement('div');
 
    elementSquareDiv.classList.add('individual-square-div');
-
-   elementSquareDiv.textContent = i;
    
    elementSquareDivsContainer.appendChild(elementSquareDiv);
 }
 
 elementBody.appendChild(elementSquareDivsContainer);
+
+checkViewportSize();
+window.addEventListener('resize', checkViewportSize);
 
 function checkViewportSize() {
    const allIndividualSquareDivs = document.querySelectorAll('#square-divs-container > .individual-square-div');
@@ -35,6 +36,3 @@ function checkViewportSize() {
       });
    }
 }
-
-checkViewportSize();
-window.addEventListener('resize', checkViewportSize);
