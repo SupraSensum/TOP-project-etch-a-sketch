@@ -10,18 +10,21 @@ window.addEventListener('resize', adjustGridBasedOnViewportSize);
 function adjustGridBasedOnViewportSize() {
    const allIndividualSquareDivs = document.querySelectorAll('#square-divs-container > .individual-square-div');
    const squareDivsContainer = document.querySelector('#square-divs-container');
+   const overallContentDiv = document.getElementById('content');
    
-   if (window.innerWidth < window.innerHeight) {
+   if (overallContentDiv.clientWidth < (overallContentDiv.clientHeight * 0.8)) {
       allIndividualSquareDivs.forEach((individualSquareDiv) => {
          individualSquareDiv.style.flexBasis = `${100/rowLength}%`;
          individualSquareDiv.style.height = ``;
          squareDivsContainer.style.maxWidth = ``;
+         // console.log('width is smaller');
       });
    } else {
       allIndividualSquareDivs.forEach((individualSquareDiv) => {
          individualSquareDiv.style.flexBasis = `0`;
          individualSquareDiv.style.height = `${100/columnLength}%`;
          squareDivsContainer.style.maxWidth = `${Math.ceil(individualSquareDiv.getBoundingClientRect().height * rowLength)}px`;
+         // console.log('height is smaller');
       });
    }
 }
