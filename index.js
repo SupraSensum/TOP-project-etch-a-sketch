@@ -24,6 +24,13 @@ function adjustGridBasedOnViewportSize() {
       allIndividualSquareDivs.forEach((individualSquareDiv) => {
          individualSquareDiv.style.flexBasis = `0`;
          individualSquareDiv.style.height = `${100/columnLength}%`;
+         // 
+         // 
+         // 
+         // HOW THE FUCK DO WE CALCULATE THIS WIDTH!?
+         // 
+         // 
+         // 
          squareDivsContainer.style.maxWidth = `${(individualSquareDiv.offsetHeight + 1) * rowLength}px`;
       });
    }
