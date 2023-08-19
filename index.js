@@ -1,12 +1,17 @@
 const elementBody = document.querySelector('body');
 const elementSquareDivsContainer = document.createElement('div');
 
+let rowLength = 30;
+let columnLength = 30;
+
 elementSquareDivsContainer.id = 'square-divs-container';
 
-for (i = 0; i < 256; i++) {
+for (i = 0; i < (rowLength * columnLength); i++) {
    const elementSquareDiv = document.createElement('div');
 
    elementSquareDiv.classList.add('individual-square-div');
+
+   // elementSquareDiv.textContent = i;
    
    elementSquareDivsContainer.appendChild(elementSquareDiv);
 }
@@ -26,7 +31,7 @@ function adjustGridBasedOnViewportSize() {
    if (window.innerWidth < window.innerHeight) {
       console.log('width is smaller');
       allIndividualSquareDivs.forEach((individualSquareDiv) => {
-         individualSquareDiv.style.flexBasis = `${100/16}%`;
+         individualSquareDiv.style.flexBasis = `${100/rowLength}%`;
          individualSquareDiv.style.height = ``;
          squareDivsContainer.style.maxWidth = ``;
       });
@@ -34,8 +39,8 @@ function adjustGridBasedOnViewportSize() {
       console.log('height is smaller');
       allIndividualSquareDivs.forEach((individualSquareDiv) => {
          individualSquareDiv.style.flexBasis = `0`;
-         individualSquareDiv.style.height = `${100/16}%`;
-         squareDivsContainer.style.maxWidth = `${(individualSquareDiv.offsetHeight + 1) * 16}px`;
+         individualSquareDiv.style.height = `${100/columnLength}%`;
+         squareDivsContainer.style.maxWidth = `${(individualSquareDiv.offsetHeight + 1) * rowLength}px`;
       });
    }
 }
