@@ -11,14 +11,12 @@ function adjustGridBasedOnViewportSize() {
    const squareDivsContainer = document.querySelector('#square-divs-container');
    
    if (window.innerWidth < window.innerHeight) {
-      console.log('width is smaller');
       allIndividualSquareDivs.forEach((individualSquareDiv) => {
          individualSquareDiv.style.flexBasis = `${100/rowLength}%`;
          individualSquareDiv.style.height = ``;
          squareDivsContainer.style.maxWidth = ``;
       });
    } else {
-      console.log('height is smaller');
       allIndividualSquareDivs.forEach((individualSquareDiv) => {
          individualSquareDiv.style.flexBasis = `0`;
          individualSquareDiv.style.height = `${100/columnLength}%`;
