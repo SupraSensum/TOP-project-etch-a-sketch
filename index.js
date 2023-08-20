@@ -5,8 +5,27 @@ let squareSideSize = 16;
 let gridContainerHeight = theGridContainer.clientHeight;
 let gridContainerWidth = theGridContainer.clientWidth;
 
-resizeTheGrid();
+drawGrid();
 window.addEventListener('resize', resizeTheGrid);
+
+function drawGrid() {
+   clearGrid();
+
+   resizeTheGrid();
+   
+   for(let i = 0; i < (squareSideSize ** 2); i++) {
+      // Create the thing
+      const singleSquareDiv = document.createElement('div');
+
+      // Do things to the thing
+      singleSquareDiv.classList.add('single-square-div');
+      singleSquareDiv.style.flexBasis = `calc(100% / ${squareSideSize})`;
+      addHoverEffects(singleSquareDiv);
+
+      // Put the thing inside the thing
+      theGridItself.appendChild(singleSquareDiv);
+   }
+}
 
 function resizeTheGrid() {
    theGridItself.style.height = `${0}px`;
@@ -23,21 +42,7 @@ function resizeTheGrid() {
       theGridItself.style.width = `${gridContainerWidth}px`;
    }
 
-   drawGrid();
-
    return;
-}
-
-function drawGrid() {
-   clearGrid();
-   
-   for(let i = 0; i < (squareSideSize ** 2); i++) {
-      const singleSquareDiv = document.createElement('div');
-      singleSquareDiv.classList.add('single-square-div');
-      singleSquareDiv.style.flexBasis = `calc(100% / ${squareSideSize})`;
-      addHoverEffects(singleSquareDiv);
-      theGridItself.appendChild(singleSquareDiv);
-   }
 }
 
 function clearGrid() {
