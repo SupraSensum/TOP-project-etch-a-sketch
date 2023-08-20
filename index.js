@@ -34,7 +34,7 @@ function drawGrid() {
    for(let i = 0; i < (squareSideSize ** 2); i++) {
       const singleSquareDiv = document.createElement('div');
       singleSquareDiv.classList.add('single-square-div');
-      singleSquareDiv.style.flexBasis = `${(theGridItself.clientWidth - 1) / squareSideSize}px`
+      singleSquareDiv.style.flexBasis = `calc(100% / ${squareSideSize})`;
       theGridItself.appendChild(singleSquareDiv);
    }
 }
