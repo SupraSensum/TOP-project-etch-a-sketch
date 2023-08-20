@@ -35,10 +35,21 @@ function drawGrid() {
       const singleSquareDiv = document.createElement('div');
       singleSquareDiv.classList.add('single-square-div');
       singleSquareDiv.style.flexBasis = `calc(100% / ${squareSideSize})`;
+      addHoverEffects(singleSquareDiv);
       theGridItself.appendChild(singleSquareDiv);
    }
 }
 
 function clearGrid() {
    theGridItself.textContent = '';
+}
+
+function addHoverEffects(someElement) {
+   someElement.addEventListener('mouseover', () => {
+      someElement.classList.add('mouseover-default');
+   });
+
+   someElement.addEventListener('mouseout', () => {
+      someElement.classList.remove('mouseover-default');
+   });
 }

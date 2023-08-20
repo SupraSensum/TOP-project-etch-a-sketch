@@ -45,6 +45,16 @@ header {
    flex: 1;
 }
 
+/* suite of effects and styles */
+
+.mouseover-default {
+   background-color: black;
+}
+
+.mouseout-default {
+
+}
+
 /* TROUBLESHOOTING */
 
 #theGridControlPanel {
