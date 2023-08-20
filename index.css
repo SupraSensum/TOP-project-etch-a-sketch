@@ -32,8 +32,17 @@ header {
    align-items: center;
 }
 
+#theGridItself {
+   display: flex;
+   flex-wrap: wrap;
+}
+
 #theGridControlPanel {
    flex: 1 150px;
+}
+
+.single-square-div {
+   flex: 1;
 }
 
 /* TROUBLESHOOTING */
@@ -48,4 +57,8 @@ header {
 
 #theGridItself {
    border: 6px solid orange;
+}
+
+.single-square-div {
+   border: 1px solid black;
 }

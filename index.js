@@ -1,13 +1,12 @@
 const theGridContainer = document.getElementById('theGridContainer');
 const theGridItself = document.getElementById('theGridItself');
 
-let gridRowLength = 16;
-let gridColumnLength = 16;
+let squareSideSize = 16;
+let gridContainerHeight = theGridContainer.clientHeight;
+let gridContainerWidth = theGridContainer.clientWidth;
 
 resizeTheGrid();
 window.addEventListener('resize', resizeTheGrid);
-
-drawGrid();
 
 function resizeTheGrid() {
    theGridItself.style.height = `${0}px`;
@@ -19,26 +18,29 @@ function resizeTheGrid() {
    if(gridContainerHeight < gridContainerWidth) {
       theGridItself.style.height = `${gridContainerHeight}px`;
       theGridItself.style.width = `${gridContainerHeight}px`;
-      
-      // DEBUG
-      theGridItself.textContent = 'height';
-      console.log('height');
    } else {
       theGridItself.style.height = `${gridContainerWidth}px`;
       theGridItself.style.width = `${gridContainerWidth}px`;
-      
-      // DEBUG
-      theGridItself.textContent = 'width';
-      console.log('width');
    }
 
-   console.log(`${gridContainerHeight} | ${gridContainerWidth}`)
+   console.log(`${theGridItself.clientWidth} | ${theGridItself.clientHeight}`);
+
+   drawGrid();
 
    return;
 }
 
 function drawGrid() {
-   for(let i = 0; i < (gridRowLength * gridColumnLength); i++) {
-
+   clearGrid();
+   
+   for(let i = 0; i < (squareSideSize ** 2); i++) {
+      const singleSquareDiv = document.createElement('div');
+      singleSquareDiv.classList.add('single-square-div');
+      singleSquareDiv.style.minWidth = `${(theGridItself.clientWidth - 1) / squareSideSize}px`
+      theGridItself.appendChild(singleSquareDiv);
    }
+}
+
+function clearGrid() {
+   theGridItself.textContent = '';
 }
