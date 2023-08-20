@@ -2,8 +2,6 @@ const theGridContainer = document.getElementById('theGridContainer');
 const theGridItself = document.getElementById('theGridItself');
 
 let squareSideSize = 16;
-let gridContainerHeight = theGridContainer.clientHeight;
-let gridContainerWidth = theGridContainer.clientWidth;
 
 drawGrid();
 window.addEventListener('resize', resizeTheGrid);
@@ -31,8 +29,8 @@ function resizeTheGrid() {
    theGridItself.style.height = `${0}px`;
    theGridItself.style.width = `${0}px`;
 
-   gridContainerHeight = theGridContainer.clientHeight;
-   gridContainerWidth = theGridContainer.clientWidth;
+   const gridContainerHeight = theGridContainer.clientHeight;
+   const gridContainerWidth = theGridContainer.clientWidth;
 
    if(gridContainerHeight < gridContainerWidth) {
       theGridItself.style.height = `${gridContainerHeight}px`;

@@ -32,17 +32,18 @@ header {
    align-items: center;
 }
 
+#theGridControlPanel {
+   flex: 1 150px;
+}
+
 #theGridItself {
    display: flex;
    flex-wrap: wrap;
 }
 
-#theGridControlPanel {
-   flex: 1 150px;
-}
-
 .single-square-div {
    flex: 1;
+   border: 1px solid black;
 }
 
 /* suite of effects and styles */
@@ -67,8 +68,4 @@ header {
 
 #theGridItself {
    border: 6px solid orange;
-}
-
-.single-square-div {
-   border: 1px solid black;
 }
