@@ -7,3 +7,38 @@
     color: #264653;
     font-family: 'Roboto', sans-serif;
 }
+
+#fullViewport {
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+   flex-direction: column;
+}
+
+header {
+   
+}
+
+#content {
+   flex: 1 1 auto;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+#theGrid {
+   flex: 3 300px;
+}
+
+#theGridControlPanel {
+   flex: 1 150px;
+}
+
+/* TROUBLESHOOTING */
+
+#theGridControlPanel {
+   border: 6px solid red;
+}
+
+#theGrid {
+   border: 6px solid green;
+}
