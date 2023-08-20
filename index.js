@@ -25,6 +25,12 @@ function drawGrid() {
    }
 }
 
+// TODO:
+//    There is a significant issue here. The code below leads to an unusual
+//    problem where, under specific width conditions for #theGridContainer,
+//    #theGridControlPanel ends up wrapping to its own row below it. This
+//    results in unexpected sizing problems, giving the appearance of padding
+//    around #theGridItself. I suspect that the solution lies in the CSS.
 function resizeTheGrid() {
    theGridItself.style.height = `${0}px`;
    theGridItself.style.width = `${0}px`;
