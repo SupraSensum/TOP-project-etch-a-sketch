@@ -16,7 +16,9 @@
 			<div id="theGridContainer">
 				<div id="theGridItself"></div>
 			</div>
-			<div id="theGridControlPanel"></div>
+			<div id="theGridControlPanel">
+				<input type="range" class="slider" id="gridSizeSlider" min="1" max="100" value="16" step="1">
+			</div>
 		</div>
 	</div>
 </body>
@@ -24,8 +26,6 @@
 
 <!-- BRAINSTORM -->
 <!-- 
-		- create a x*y grid
-			- all items in grid must be squares
 		- each square has a hover effect
 			- class vs direct background change via js?
 			- colors
@@ -36,4 +36,13 @@
 				- trails (enabled by default)
 		- slider to adjust grid size
 			- set a max val
+		- Superfluous features
+			- on page load, grid lines slowly fade in
  -->
+
+ <!-- HOVER EFFECT -->
+ <!-- 
+			So what options do we have to apply effects?
+				1. direct js
+				2. classes
+  -->

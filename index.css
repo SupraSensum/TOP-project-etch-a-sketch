@@ -44,6 +44,7 @@ header {
 .single-square-div {
    flex: 1;
    border: 1px solid black;
+   transition: background-color 0.5s;
 }
 
 /* suite of effects and styles */
@@ -56,7 +57,7 @@ header {
 
 }
 
-/* TROUBLESHOOTING */
+/* DEBUG */
 
 #theGridControlPanel {
    border: 6px solid red;
