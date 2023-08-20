@@ -25,8 +25,11 @@ header {
    flex-wrap: wrap;
 }
 
-#theGrid {
+#theGridContainer {
    flex: 3 300px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 #theGridControlPanel {
@@ -39,6 +42,10 @@ header {
    border: 6px solid red;
 }
 
-#theGrid {
+#theGridContainer {
    border: 6px solid green;
+}
+
+#theGridItself {
+   border: 6px solid orange;
 }
