@@ -23,8 +23,6 @@ function resizeTheGrid() {
       theGridItself.style.width = `${gridContainerWidth}px`;
    }
 
-   console.log(`${theGridItself.clientWidth} | ${theGridItself.clientHeight}`);
-
    drawGrid();
 
    return;
@@ -36,7 +34,7 @@ function drawGrid() {
    for(let i = 0; i < (squareSideSize ** 2); i++) {
       const singleSquareDiv = document.createElement('div');
       singleSquareDiv.classList.add('single-square-div');
-      singleSquareDiv.style.minWidth = `${(theGridItself.clientWidth - 1) / squareSideSize}px`
+      singleSquareDiv.style.flexBasis = `${(theGridItself.clientWidth - 1) / squareSideSize}px`
       theGridItself.appendChild(singleSquareDiv);
    }
 }
