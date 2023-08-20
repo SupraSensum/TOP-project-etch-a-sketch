@@ -1,7 +1,17 @@
-let rowLength = 30;
-let columnLength = 30;
+const gridSizeSlider = document.getElementById('gridSizeSlider');
 
-drawGrid();
+let columnLength = gridSizeSlider.value;
+let rowLength = gridSizeSlider.value;
+
+drawGrid(rowLength, columnLength);
+gridSizeSlider.addEventListener('input', () => {
+   columnLength = gridSizeSlider.value;
+   rowLength = gridSizeSlider.value;
+
+   clearGrid();
+   drawGrid(gridSizeSlider.value, gridSizeSlider.value);
+   console.log(columnLength);
+});
 
 adjustGridBasedOnViewportSize();
 window.addEventListener('resize', adjustGridBasedOnViewportSize);
@@ -43,10 +53,10 @@ function attachHoverEventListenersToAllSquareDivs(aSingleSquareDiv) {
 }
 
 function clearGrid() {
-   document.querySelector('#square-divs-container').textContent = '';
+   document.querySelector('#square-divs-container').remove();
 }
 
-function drawGrid() {
+function drawGrid(rowLength = 1, columnLength = 1) {
    const elementSquareDivsContainer = document.createElement('div');
    const elementContentDiv = document.querySelector('#content');
 
