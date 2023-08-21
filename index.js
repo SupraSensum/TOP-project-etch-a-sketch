@@ -5,6 +5,7 @@ const theGridSizeSliderValue = document.getElementById('gridSizeSliderValue');
 const theGridTransitionDurationSlider = document.getElementById('transitionDurationSlider');
 const theGridTransitionDurationSliderValue = document.getElementById('transitionDurationSliderValue');
 const transitionColorToggleButton = document.getElementById('transition-color-toggle');
+const clearGridButton = document.getElementById('clear-grid-button');
 const colorOptions = [
    'DEFAULT',
    'RAINBOW',
@@ -19,6 +20,8 @@ theGridSizeSlider.addEventListener('input', drawGrid);
 theGridTransitionDurationSlider.addEventListener('input', updateTransitionDuration);
 window.addEventListener('resize', resizeTheGrid);
 transitionColorToggleButton.addEventListener('click', toggleColorOption);
+clearGridButton.addEventListener('click', drawGrid);
+
 
 drawGrid();
 
