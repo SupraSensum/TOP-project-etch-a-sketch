@@ -5,7 +5,6 @@ const theGridSizeSliderValue = document.getElementById('gridSizeSliderValue');
 const theGridTransitionDurationSlider = document.getElementById('transitionDurationSlider');
 const theGridTransitionDurationSliderValue = document.getElementById('transitionDurationSliderValue');
 const transitionColorToggleButton = document.getElementById('transition-color-toggle');
-const clearGridButton = document.getElementById('clear-grid-button');
 const colorOptions = [
    'DEFAULT',
    'RAINBOW',
@@ -20,8 +19,6 @@ theGridSizeSlider.addEventListener('input', drawGrid);
 theGridTransitionDurationSlider.addEventListener('input', updateTransitionDuration);
 window.addEventListener('resize', resizeTheGrid);
 transitionColorToggleButton.addEventListener('click', toggleColorOption);
-clearGridButton.addEventListener('click', drawGrid);
-
 
 drawGrid();
 
@@ -95,7 +92,7 @@ function updateTransitionDuration() {
    const singleSquareDivs = document.querySelectorAll('.single-square-div');
 
    singleSquareDivs.forEach((singleSquareDiv) => {
-      singleSquareDiv.style.transition = `background-color ${theGridTransitionDurationSlider.value}s, opacity ${theGridTransitionDurationSlider.value}s`;
+      singleSquareDiv.style.transition = `background-color ${theGridTransitionDurationSlider.value}s, opacity ${theGridTransitionDurationSlider.value}sq`;
    });
 
    theGridTransitionDurationSliderValue.textContent = `${theGridTransitionDurationSlider.value * 2}s`; // multiply by two since the transition duration applies to both 'mouseover' and 'transitionend'
@@ -156,8 +153,31 @@ function applyTransitionendEffect(someElement) {
 
 function toggleColorOption() {
    currentOptionsIndex = (currentOptionsIndex + 1) % colorOptions.length;
+   colorOption = colorOptions[currentOptionsIndex];
 
-   transitionColorToggleButton.textContent = colorOptions[currentOptionsIndex];
+   transitionColorToggleButton.textContent = colorOption;
+
+   // Add or remove "clear grid" button when needed
+   if (colorOption === 'DARKEN') {
+      const clearGridContainer = document.createElement('div');
+      const clearGridButton = document.createElement('button');
+      const theGridControlPanel = document.getElementById('theGridControlPanel');
+
+      clearGridButton.addEventListener('click', drawGrid);
+      clearGridButton.id = 'clear-grid-button';
+      clearGridButton.textContent = 'CLEAR GRID';
+
+      clearGridContainer.id = 'clearGridContainer';
+      clearGridContainer.appendChild(clearGridButton);
+
+      theGridControlPanel.appendChild(clearGridContainer);
+   } else {
+      const clearGridContainer = document.getElementById('clearGridContainer');
+
+      if (clearGridContainer) {
+         clearGridContainer.remove();
+      }
+   }
    
    drawGrid();
 }
