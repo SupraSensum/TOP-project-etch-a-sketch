@@ -64,12 +64,6 @@ header {
    width: 100%;
 }
 
-/* suite of effects and styles */
-
-.mouseover-default {
-   background-color: black;
-}
-
 /* DEBUG */
 
 #theGridControlPanel {
