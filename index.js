@@ -57,11 +57,11 @@ function resizeTheGrid() {
 
 function addHoverEffects(someElement) {
    someElement.addEventListener('mouseover', () => {
-      someElement.classList.add('mouseover-default');
+      someElement.style.backgroundColor = 'black';
    });
 
    someElement.addEventListener('transitionend', () => {
-      someElement.classList.remove('mouseover-default');
+      someElement.style.backgroundColor = 'initial';
    });
 }
 

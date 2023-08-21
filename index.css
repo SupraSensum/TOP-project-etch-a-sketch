@@ -44,12 +44,12 @@ header {
 #theGridItself {
    display: flex;
    flex-wrap: wrap;
+   border: 4px solid black;
 }
 
 .single-square-div {
    flex: 1;
    border: 1px solid black;
-   transition: background-color 0.025s;
 }
 
 .slider-info, .transition-duration-info {
