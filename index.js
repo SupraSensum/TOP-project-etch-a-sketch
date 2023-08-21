@@ -95,7 +95,7 @@ function updateTransitionDuration() {
    const singleSquareDivs = document.querySelectorAll('.single-square-div');
 
    singleSquareDivs.forEach((singleSquareDiv) => {
-      singleSquareDiv.style.transition = `background-color ${theGridTransitionDurationSlider.value}s`;
+      singleSquareDiv.style.transition = `background-color ${theGridTransitionDurationSlider.value}s, opacity ${theGridTransitionDurationSlider.value}s`;
    });
 
    theGridTransitionDurationSliderValue.textContent = `${theGridTransitionDurationSlider.value * 2}s`; // multiply by two since the transition duration applies to both 'mouseover' and 'transitionend'
