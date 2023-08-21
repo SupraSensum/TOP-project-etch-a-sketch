@@ -4,13 +4,21 @@ const theGridSizeSlider = document.getElementById('gridSizeSlider');
 const theGridSizeSliderValue = document.getElementById('gridSizeSliderValue');
 const theGridTransitionDurationSlider = document.getElementById('transitionDurationSlider');
 const theGridTransitionDurationSliderValue = document.getElementById('transitionDurationSliderValue');
+const transitionColorToggleButton = document.getElementById('transition-color-toggle');
+const colorOptions = [
+   'DEFAULT',
+   'RAINBOW',
+   'DARKEN'
+]
 
+let currentOptionsIndex = 0;
 let squareSideSize = 1;
 
 // Event Listeners
 theGridSizeSlider.addEventListener('input', drawGrid);
 theGridTransitionDurationSlider.addEventListener('input', updateTransitionDuration);
 window.addEventListener('resize', resizeTheGrid);
+transitionColorToggleButton.addEventListener('click', toggleColorOption);
 
 drawGrid();
 
@@ -57,11 +65,11 @@ function resizeTheGrid() {
 
 function addHoverEffects(someElement) {
    someElement.addEventListener('mouseover', () => {
-      applyTransitionColor(someElement);
+      applyMouseoverEffect(someElement);
    });
 
    someElement.addEventListener('transitionend', () => {
-      undoTransitionColor(someElement);
+      applyTransitionendEffect(someElement);
    });
 }
 
@@ -90,10 +98,75 @@ function updateTransitionDuration() {
    theGridTransitionDurationSliderValue.textContent = `${theGridTransitionDurationSlider.value * 2}s`; // multiply by two since the transition duration applies to both 'mouseover' and 'transitionend'
 }
 
-function applyTransitionColor(someElement) {
-   someElement.style.backgroundColor = 'black';
+// I am 100% sure there's a better way to implement the intentions of the 
+// function below, but time to move on!
+function applyMouseoverEffect(someElement) {
+   const buttonToggleState = transitionColorToggleButton.textContent;
+
+   switch (buttonToggleState) {
+      case 'DEFAULT':
+         someElement.style.backgroundColor = 'black';
+         break;
+      case 'RAINBOW':
+         someElement.style.backgroundColor = getRandomColor();
+         break;
+      case 'DARKEN':
+         const currentOpacity = someElement.style.opacity;
+
+         if(currentOpacity === '') {
+            someElement.style.opacity = '0.1';
+            someElement.style.backgroundColor = getRandomColor();
+         } else {
+            if (Number(currentOpacity) < 1) {
+               someElement.style.opacity = `${Number(someElement.style.opacity) + 0.1}`;
+            }
+         }
+
+         break;
+      default:
+         console.error('UHHHHHH');
+         return;
+         break; // Yes, yes, I know it's redundant
+   }
 }
 
-function undoTransitionColor(someElement) {
-   someElement.style.backgroundColor = 'initial';
+// I am 100% sure there's a better way to implement the intentions of the 
+// function below, but time to move on!
+function applyTransitionendEffect(someElement) {
+   const buttonToggleState = transitionColorToggleButton.textContent;
+
+   switch (buttonToggleState) {
+      case 'DEFAULT':
+         someElement.style.backgroundColor = 'initial';
+         break;
+      case 'RAINBOW':
+         someElement.style.backgroundColor = 'initial';
+         break;
+      case 'DARKEN':
+         break;
+      default:
+         console.error('UHHHHHH');
+         return;
+         break; // Yes, yes, I know it's redundant
+   }
+}
+
+function toggleColorOption() {
+   currentOptionsIndex = (currentOptionsIndex + 1) % colorOptions.length;
+
+   transitionColorToggleButton.textContent = colorOptions[currentOptionsIndex];
+   
+   drawGrid();
+}
+
+function getRandomColor() {
+   const letters = "0123456789ABCDEF";
+
+   let color = "#";
+
+   for (let i = 0; i < 6; i++) {
+       color += letters[Math.floor(Math.random() * 16)];
+   }
+
+   return color;
 }
