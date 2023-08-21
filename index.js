@@ -2,10 +2,14 @@ const theGridContainer = document.getElementById('theGridContainer');
 const theGridItself = document.getElementById('theGridItself');
 const theGridSizeSlider = document.getElementById('gridSizeSlider');
 const theGridSizeSliderValue = document.getElementById('gridSizeSliderValue');
+const theGridTransitionDurationSlider = document.getElementById('transitionDurationSlider');
+const theGridTransitionDurationSliderValue = document.getElementById('transitionDurationSliderValue');
 
 let squareSideSize = 1;
 
 theGridSizeSlider.addEventListener('input', drawGrid);
+
+theGridTransitionDurationSlider.addEventListener('input', updateTransitionDuration);
 
 drawGrid();
 window.addEventListener('resize', resizeTheGrid);
@@ -14,19 +18,14 @@ function drawGrid() {
    clearGrid();
 
    resizeTheGrid();
-   
-   for(let i = 0; i < (squareSideSize ** 2); i++) {
-      // Create the thing
-      const singleSquareDiv = document.createElement('div');
 
-      // Do things to the thing
-      singleSquareDiv.classList.add('single-square-div');
-      singleSquareDiv.style.flexBasis = `calc(100% / ${squareSideSize})`;
-      addHoverEffects(singleSquareDiv);
+   createAndAppendAllSingleSquareDivs();
 
-      // Put the thing inside the thing
-      theGridItself.appendChild(singleSquareDiv);
-   }
+   updateTransitionDuration();
+}
+
+function clearGrid() {
+   theGridItself.textContent = '';
 }
 
 // TODO:
@@ -56,10 +55,6 @@ function resizeTheGrid() {
    return;
 }
 
-function clearGrid() {
-   theGridItself.textContent = '';
-}
-
 function addHoverEffects(someElement) {
    someElement.addEventListener('mouseover', () => {
       someElement.classList.add('mouseover-default');
@@ -68,4 +63,29 @@ function addHoverEffects(someElement) {
    someElement.addEventListener('transitionend', () => {
       someElement.classList.remove('mouseover-default');
    });
+}
+
+function createAndAppendAllSingleSquareDivs() {
+   for(let i = 0; i < (squareSideSize ** 2); i++) {
+      // Create the thing
+      const singleSquareDiv = document.createElement('div');
+
+      // Do things to the thing
+      singleSquareDiv.classList.add('single-square-div');
+      singleSquareDiv.style.flexBasis = `calc(100% / ${squareSideSize})`;
+      addHoverEffects(singleSquareDiv);
+
+      // Put the thing inside the thing
+      theGridItself.appendChild(singleSquareDiv);
+   }
+}
+
+function updateTransitionDuration() {
+   const singleSquareDivs = document.querySelectorAll('.single-square-div');
+
+   singleSquareDivs.forEach((singleSquareDiv) => {
+      singleSquareDiv.style.transition = `background-color ${theGridTransitionDurationSlider.value}s`;
+   });
+
+   theGridTransitionDurationSliderValue.textContent = `${theGridTransitionDurationSlider.value * 2}s`; // multiply by two since the transition duration applies to both 'mouseover' and 'transitionend'
 }

@@ -49,14 +49,10 @@ header {
 .single-square-div {
    flex: 1;
    border: 1px solid black;
-   transition: background-color 0.5s;
+   transition: background-color 0.025s;
 }
 
-.slider-container {
-   
-}
-
-.slider-info {
+.slider-info, .transition-duration-info {
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -64,7 +60,7 @@ header {
    gap: 8px;
 }
 
-#gridSizeSlider {
+.slider {
    width: 100%;
 }
 
@@ -84,6 +80,6 @@ header {
    border: 6px solid green;
 }
 
-.slider-container {
+#theGridControlPanel > * {
    border: 6px solid orange;
 }
