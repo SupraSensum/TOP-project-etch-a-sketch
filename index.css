@@ -36,6 +36,9 @@ header {
    flex: 1 150px;
    display: flex;
    flex-direction: column;
+   justify-content: center;
+   gap: 8px;
+   padding: 8px;
 }
 
 #theGridItself {
@@ -50,19 +53,25 @@ header {
 }
 
 .slider-container {
+   
+}
+
+.slider-info {
    display: flex;
    justify-content: space-between;
    align-items: center;
+   flex: initial;
+   gap: 8px;
+}
+
+#gridSizeSlider {
+   width: 100%;
 }
 
 /* suite of effects and styles */
 
 .mouseover-default {
    background-color: black;
-}
-
-.mouseout-default {
-
 }
 
 /* DEBUG */
