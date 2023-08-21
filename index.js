@@ -7,12 +7,12 @@ const theGridTransitionDurationSliderValue = document.getElementById('transition
 
 let squareSideSize = 1;
 
+// Event Listeners
 theGridSizeSlider.addEventListener('input', drawGrid);
-
 theGridTransitionDurationSlider.addEventListener('input', updateTransitionDuration);
+window.addEventListener('resize', resizeTheGrid);
 
 drawGrid();
-window.addEventListener('resize', resizeTheGrid);
 
 function drawGrid() {
    clearGrid();
