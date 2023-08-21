@@ -34,6 +34,8 @@ header {
 
 #theGridControlPanel {
    flex: 1 150px;
+   display: flex;
+   flex-direction: column;
 }
 
 #theGridItself {
@@ -45,6 +47,12 @@ header {
    flex: 1;
    border: 1px solid black;
    transition: background-color 0.5s;
+}
+
+.slider-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
 
 /* suite of effects and styles */
@@ -67,6 +75,6 @@ header {
    border: 6px solid green;
 }
 
-#theGridItself {
+.slider-container {
    border: 6px solid orange;
 }

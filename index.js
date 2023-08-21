@@ -1,7 +1,11 @@
 const theGridContainer = document.getElementById('theGridContainer');
 const theGridItself = document.getElementById('theGridItself');
+const theGridSizeSlider = document.getElementById('gridSizeSlider');
+const theGridSizeSliderValue = document.getElementById('gridSizeSliderValue');
 
-let squareSideSize = 16;
+let squareSideSize = 1;
+
+theGridSizeSlider.addEventListener('input', drawGrid);
 
 drawGrid();
 window.addEventListener('resize', resizeTheGrid);
@@ -35,6 +39,9 @@ function resizeTheGrid() {
    theGridItself.style.height = `${0}px`;
    theGridItself.style.width = `${0}px`;
 
+   squareSideSize = theGridSizeSlider.value;
+   theGridSizeSliderValue.textContent = `${theGridSizeSlider.value}x${theGridSizeSlider.value}`;
+
    const gridContainerHeight = theGridContainer.clientHeight;
    const gridContainerWidth = theGridContainer.clientWidth;
 
@@ -58,7 +65,7 @@ function addHoverEffects(someElement) {
       someElement.classList.add('mouseover-default');
    });
 
-   someElement.addEventListener('mouseout', () => {
+   someElement.addEventListener('transitionend', () => {
       someElement.classList.remove('mouseover-default');
    });
 }
