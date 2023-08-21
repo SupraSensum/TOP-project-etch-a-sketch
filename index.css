@@ -70,17 +70,3 @@ button {
    border-radius: 4px;
    font-weight: bold;
 }
-
-/* DEBUG */
-
-#theGridControlPanel {
-   border: 6px solid red;
-}
-
-#theGridContainer {
-   border: 6px solid green;
-}
-
-#theGridControlPanel > * {
-   border: 6px solid orange;
-}
