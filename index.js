@@ -57,11 +57,11 @@ function resizeTheGrid() {
 
 function addHoverEffects(someElement) {
    someElement.addEventListener('mouseover', () => {
-      someElement.style.backgroundColor = 'black';
+      applyTransitionColor(someElement);
    });
 
    someElement.addEventListener('transitionend', () => {
-      someElement.style.backgroundColor = 'initial';
+      undoTransitionColor(someElement);
    });
 }
 
@@ -88,4 +88,12 @@ function updateTransitionDuration() {
    });
 
    theGridTransitionDurationSliderValue.textContent = `${theGridTransitionDurationSlider.value * 2}s`; // multiply by two since the transition duration applies to both 'mouseover' and 'transitionend'
+}
+
+function applyTransitionColor(someElement) {
+   someElement.style.backgroundColor = 'black';
+}
+
+function undoTransitionColor(someElement) {
+   someElement.style.backgroundColor = 'initial';
 }
