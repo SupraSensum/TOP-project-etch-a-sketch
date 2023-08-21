@@ -113,6 +113,7 @@ function applyMouseoverEffect(someElement) {
       case 'DARKEN':
          const currentOpacity = someElement.style.opacity;
 
+         // set intial color then just increase opacity with each hit
          if(currentOpacity === '') {
             someElement.style.opacity = '0.1';
             someElement.style.backgroundColor = getRandomColor();
